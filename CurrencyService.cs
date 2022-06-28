@@ -7,10 +7,10 @@ namespace Service.Services.Currency
 {
 	public interface ICurrencyService
     {
-        Task<IEnumerable<Core.Models.Currency.Currency>> GetAll();
-        Task<Core.Models.Currency.Currency> GetById(string id);
-        Task<Core.Models.Currency.Currency> Add(Core.Models.Currency.Currency currency);
-        Task Update(Core.Models.Currency.Currency currency);
+        Task<IEnumerable<Currency>> GetAll();
+        Task<Currency> GetById(string id);
+        Task<Currency> Add(Currency currency);
+        Task Update(Currency currency);
         Task Delete(string id);
     }
 
@@ -26,7 +26,7 @@ namespace Service.Services.Currency
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<IEnumerable<Core.Models.Currency.Currency>> GetAll()
+        public async Task<IEnumerable<Currency>> GetAll()
         {
             await using var transaction = _unitOfWork.BeginTransaction();
             try
@@ -41,7 +41,7 @@ namespace Service.Services.Currency
             }
         }
 
-        public async Task<Core.Models.Currency.Currency> GetById(string id)
+        public async Task<Currency> GetById(string id)
         {
             await using var transaction = _unitOfWork.BeginTransaction();
             try
@@ -56,7 +56,7 @@ namespace Service.Services.Currency
             }
         }
 
-        public async Task<Core.Models.Currency.Currency> Add(Core.Models.Currency.Currency currency)
+        public async Task<Currency> Add(Currency currency)
         {
             await using var transaction = _unitOfWork.BeginTransaction();
             try
@@ -72,7 +72,7 @@ namespace Service.Services.Currency
             }
         }
 
-        public async Task Update(Core.Models.Currency.Currency currency)
+        public async Task Update(Currency currency)
         {
             await using var transaction = _unitOfWork.BeginTransaction();
             try
