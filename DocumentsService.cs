@@ -41,10 +41,10 @@ namespace Service.Services.Documents
 
         public DocumentsService(IDocumentsRepository documentsRepository, IUnitOfWork unitOfWork, IDocumentTemplatesRepository documentTemplatesRepository, IConfiguration configuration, IHttpContextAccessor httpContext) : base(httpContext)
         {
-            this._documentsRepository = documentsRepository;
+            _documentsRepository = documentsRepository;
             _unitOfWork = unitOfWork;
-            this.documentTemplatesRepository = documentTemplatesRepository;
-            this.configuration = configuration;
+            documentTemplatesRepository = documentTemplatesRepository;
+            configuration = configuration;
         }
 
         public async Task<bool> DeleteDocumentAsync(Guid id)
